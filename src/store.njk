@@ -89,6 +89,7 @@ eleventyComputed:
     @keyframes hero-slide-fade { 0% { opacity: 0; transform: scale(1.0); } 8% { opacity: 1; } 50% { opacity: 1; transform: scale(1.08); } 58% { opacity: 0; transform: scale(1.08); } 100% { opacity: 0; transform: scale(1.0); } }
     .hero-slide:nth-child(1) { animation-delay: 0s; }
     .hero-slide:nth-child(2) { animation-delay: 6s; }
+    .hero-slideshow .hero-slide:only-child { animation: none; opacity: 1; }
 
     /* ── Customer photo slideshow (16:9) ── */
     .customer-slideshow { position: relative; aspect-ratio: 16/9; overflow: hidden; }
@@ -176,21 +177,21 @@ eleventyComputed:
   <!-- HERO -->
   <section class="hero-wrap">
     <div class="triptych">
-      <div class="tri-col" style="background:#080808 url('/assets/steak.jpg') center/cover no-repeat;">
-        <video class="tri-video" autoplay muted loop playsinline preload="auto" poster="/assets/steak.jpg">
+      <div class="tri-col">
+        <video autoplay muted loop playsinline preload="auto">
           <source src="/assets/hero-left-steak.mp4" type="video/mp4" />
         </video>
         <div class="tri-overlay"></div>
       </div>
       <div class="tri-col">
         <div class="hero-slideshow">
-          <img class="hero-slide" src="/assets/hero-slide-1.jpg" alt="{{ store.name_short }} entrance" />
+          <img class="hero-slide" src="/assets/hero-slide-2.jpg" alt="{{ store.name_short }} Wagyu Steak &amp; Burger" />
           <img class="hero-slide" src="/assets/hero-slide-3.jpg" alt="{{ store.name_short }} signature menu" />
         </div>
         <div class="tri-overlay"></div>
       </div>
-      <div class="tri-col" style="background:#080808 url('/assets/wagyu-steak-rice-bowl.jpg') center/cover no-repeat;">
-        <video class="tri-video" autoplay muted loop playsinline preload="auto" poster="/assets/wagyu-steak-rice-bowl.jpg" onloadedmetadata="this.currentTime=3">
+      <div class="tri-col">
+        <video autoplay muted loop playsinline preload="auto" onloadedmetadata="this.currentTime=3">
           <source src="/assets/hero-right-stedon.mp4" type="video/mp4" />
         </video>
         <div class="tri-overlay"></div>
@@ -550,22 +551,6 @@ eleventyComputed:
   </footer>
 
   <script>
-    /* === Hero video fallback ===
-       自動再生をできる限り粘って試す。
-       本当に読み込み/デコードに失敗したとき（コーデック非対応・404等）だけ
-       静止画にフォールバックする。play() の promise reject では切り替えない。 */
-    document.querySelectorAll('.tri-video').forEach(function (v) {
-      var fellBack = false;
-      var fallback = function () { if (!fellBack) { fellBack = true; v.style.display = 'none'; } };
-      var tryPlay = function () { var p = v.play(); if (p && typeof p.catch === 'function') { p.catch(function () {}); } };
-      v.addEventListener('error', fallback, true);
-      var src = v.querySelector('source');
-      if (src) { src.addEventListener('error', fallback); }
-      tryPlay();
-      v.addEventListener('loadeddata', tryPlay);
-      v.addEventListener('canplay', tryPlay);
-    });
-
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
