@@ -176,8 +176,8 @@ eleventyComputed:
   <!-- HERO -->
   <section class="hero-wrap">
     <div class="triptych">
-      <div class="tri-col">
-        <video autoplay muted loop playsinline preload="auto">
+      <div class="tri-col" style="background:#080808 url('/assets/steak.jpg') center/cover no-repeat;">
+        <video class="tri-video" autoplay muted loop playsinline preload="auto" poster="/assets/steak.jpg">
           <source src="/assets/hero-left-steak.mp4" type="video/mp4" />
         </video>
         <div class="tri-overlay"></div>
@@ -189,8 +189,8 @@ eleventyComputed:
         </div>
         <div class="tri-overlay"></div>
       </div>
-      <div class="tri-col">
-        <video autoplay muted loop playsinline preload="auto" onloadedmetadata="this.currentTime=3">
+      <div class="tri-col" style="background:#080808 url('/assets/wagyu-steak-rice-bowl.jpg') center/cover no-repeat;">
+        <video class="tri-video" autoplay muted loop playsinline preload="auto" poster="/assets/wagyu-steak-rice-bowl.jpg" onloadedmetadata="this.currentTime=3">
           <source src="/assets/hero-right-stedon.mp4" type="video/mp4" />
         </video>
         <div class="tri-overlay"></div>
@@ -550,6 +550,16 @@ eleventyComputed:
   </footer>
 
   <script>
+    /* === Hero video fallback ===
+       再生できない場合（自動再生ブロック / コーデック非対応 等）は
+       video を隠し、tri-col の背景画像にフォールバックする */
+    document.querySelectorAll('.tri-video').forEach(function (v) {
+      var fallback = function () { v.style.display = 'none'; };
+      v.addEventListener('error', fallback, true);
+      var p = v.play();
+      if (p && typeof p.catch === 'function') { p.catch(fallback); }
+    });
+
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
