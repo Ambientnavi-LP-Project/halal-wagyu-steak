@@ -551,13 +551,19 @@ eleventyComputed:
 
   <script>
     /* === Hero video fallback ===
-       再生できない場合（自動再生ブロック / コーデック非対応 等）は
-       video を隠し、tri-col の背景画像にフォールバックする */
+       自動再生をできる限り粘って試す。
+       本当に読み込み/デコードに失敗したとき（コーデック非対応・404等）だけ
+       静止画にフォールバックする。play() の promise reject では切り替えない。 */
     document.querySelectorAll('.tri-video').forEach(function (v) {
-      var fallback = function () { v.style.display = 'none'; };
+      var fellBack = false;
+      var fallback = function () { if (!fellBack) { fellBack = true; v.style.display = 'none'; } };
+      var tryPlay = function () { var p = v.play(); if (p && typeof p.catch === 'function') { p.catch(function () {}); } };
       v.addEventListener('error', fallback, true);
-      var p = v.play();
-      if (p && typeof p.catch === 'function') { p.catch(fallback); }
+      var src = v.querySelector('source');
+      if (src) { src.addEventListener('error', fallback); }
+      tryPlay();
+      v.addEventListener('loadeddata', tryPlay);
+      v.addEventListener('canplay', tryPlay);
     });
 
     const io = new IntersectionObserver((entries) => {
