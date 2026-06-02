@@ -185,8 +185,8 @@ eleventyComputed:
       </div>
       <div class="tri-col">
         <div class="hero-slideshow">
-          <img class="hero-slide" src="/assets/hero-slide-2.jpg" alt="{{ store.name_short }} Wagyu Steak &amp; Burger" />
-          <img class="hero-slide" src="/assets/hero-slide-3.jpg" alt="{{ store.name_short }} signature menu" />
+          <img class="hero-slide" src="/assets/{{ store.slug }}/hero-1.jpg" alt="{{ store.name_full_en }} Wagyu Steak &amp; Burger" />
+          <img class="hero-slide" src="/assets/{{ store.slug }}/hero-2.jpg" alt="{{ store.name_full_en }} signature menu" />
         </div>
         <div class="tri-overlay"></div>
       </div>
@@ -207,14 +207,14 @@ eleventyComputed:
         ( Halal )
       </p>
       <p style="font-family:'Cormorant Garamond', serif; font-size:clamp(.9rem,3.2vw,1.1rem); letter-spacing:.06em; color:#f5ede0; font-weight:400; line-height:1.45;">
-        Steak &amp; Burger · {{ store.name_short }}
+        Steak &amp; Burger · {{ store.name_full_en }}
       </p>
     </div>
 
     <div style="position:relative; z-index:1; text-align:center; width:100%; max-width:360px;">
       <p class="label reveal d1" style="margin-bottom:14px;">GINZA · TOKYO · 銀座</p>
       <h1 class="reveal d2" style="font-family:'Bebas Neue'; font-size:clamp(2.5rem,10vw,4rem); font-weight:700; line-height:1.1; letter-spacing:-.01em; margin-bottom:14px; color:#f5ede0;">
-        Tokyo's Ginza<br/>
+        {{ store.hero_place }}<br/>
         <em style="color:#c9a84c; font-style:normal;">Legendary</em><br/>
         Wagyu Steak &amp; Burger
       </h1>
@@ -225,7 +225,7 @@ eleventyComputed:
         Japanese Food Wagyu Restaurant &nbsp;·&nbsp; Muslim-Friendly
       </p>
       <p class="reveal d3" style="font-size:clamp(.66rem,2.3vw,.74rem); color:rgba(245,237,224,.38); letter-spacing:.18em; margin-bottom:28px;">
-        STEAK &amp; BURGER · {{ store.name_short | upper }} · SINCE 1962
+        STEAK &amp; BURGER · {{ store.name_full_en | upper }} · SINCE 1962
       </p>
 
       <div class="reveal d4" style="display:flex; flex-direction:column; gap:12px;">
@@ -268,14 +268,14 @@ eleventyComputed:
   <!-- BURGER IMAGE -->
   <div class="img-frame" style="margin-bottom:0; background:#faf8f4;">
     <div class="img-frame-inner reveal">
-      <img src="/assets/wagyu-raw-hero.jpg" alt="{{ store.name_short }} Wagyu Steak &amp; Burger — 宮崎和牛" style="width:100%; display:block; aspect-ratio:16/9; object-fit:cover; object-position:center center;" />
+      <img src="/assets/wagyu-raw-hero.jpg" alt="{{ store.name_full_en }} Wagyu Steak &amp; Burger — 宮崎和牛" style="width:100%; display:block; aspect-ratio:16/9; object-fit:cover; object-position:center center;" />
     </div>
   </div>
 
   <!-- MARQUEE -->
   <div class="marquee-wrap">
     <div class="marquee-track">
-      <span class="marquee-item" style="color:#18140c; font-weight:500;">{{ store.name_short }} · Wagyu Steak &amp; Burger</span>
+      <span class="marquee-item" style="color:#18140c; font-weight:500;">{{ store.name_full_en }} · Wagyu Steak &amp; Burger</span>
       <span class="marquee-dot"></span>
       <span class="marquee-item">Japanese Wagyu</span>
       <span class="marquee-dot"></span>
@@ -285,7 +285,7 @@ eleventyComputed:
       <span class="marquee-dot"></span>
       <span class="marquee-item">Walk-ins Welcome · ウォークイン歓迎</span>
       <span class="marquee-dot"></span>
-      <span class="marquee-item" style="color:#18140c; font-weight:500;">{{ store.name_short }} · Wagyu Steak &amp; Burger</span>
+      <span class="marquee-item" style="color:#18140c; font-weight:500;">{{ store.name_full_en }} · Wagyu Steak &amp; Burger</span>
       <span class="marquee-dot"></span>
       <span class="marquee-item">Japanese Wagyu</span>
       <span class="marquee-dot"></span>
@@ -313,7 +313,7 @@ eleventyComputed:
         ( Halal )
       </p>
       <p class="reveal d1" style="font-family:'Cormorant Garamond', serif; font-size:clamp(1.2rem,4.6vw,1.7rem); font-weight:400; line-height:1.45; color:#f5ede0; letter-spacing:.05em; margin-bottom:22px;">
-        Steak &amp; Burger · {{ store.name_short }}
+        Steak &amp; Burger · {{ store.name_full_en }}
       </p>
       <span class="gold-rule reveal d2" style="margin:0 auto;"></span>
     </div>
@@ -339,7 +339,7 @@ eleventyComputed:
   <!-- FARM IMAGE -->
   <div class="img-frame" style="margin-bottom:0; background:#faf8f4;">
     <div class="img-frame-inner reveal">
-      <img src="/assets/farm.jpg" alt="宮崎和牛の生産現場 — {{ store.name_short }} Wagyu Steak &amp; Burger" style="width:100%; display:block; aspect-ratio:16/9; object-fit:cover; object-position:center center;" />
+      <img src="/assets/farm.jpg" alt="宮崎和牛の生産現場 — {{ store.name_full_en }} Wagyu Steak &amp; Burger" style="width:100%; display:block; aspect-ratio:16/9; object-fit:cover; object-position:center center;" />
     </div>
   </div>
 
@@ -389,10 +389,10 @@ eleventyComputed:
 
     <div class="img-frame reveal" style="margin-bottom:0;">
       <div class="img-frame-inner customer-slideshow">
-        <img class="customer-slide" src="/assets/family01.jpg" alt="{{ store.name_short }} guests — Wagyu Steak &amp; Burger" loading="lazy" />
-        <img class="customer-slide" src="/assets/family02.jpg" alt="{{ store.name_short }} guests — Wagyu Steak &amp; Burger" loading="lazy" />
-        <img class="customer-slide" src="/assets/family03.jpg" alt="{{ store.name_short }} guests — Wagyu Steak &amp; Burger" loading="lazy" />
-        <img class="customer-slide" src="/assets/family04.jpg" alt="{{ store.name_short }} guests — Wagyu Steak &amp; Burger" loading="lazy" />
+        <img class="customer-slide" src="/assets/family01.jpg" alt="{{ store.name_full_en }} guests — Wagyu Steak &amp; Burger" loading="lazy" />
+        <img class="customer-slide" src="/assets/family02.jpg" alt="{{ store.name_full_en }} guests — Wagyu Steak &amp; Burger" loading="lazy" />
+        <img class="customer-slide" src="/assets/family03.jpg" alt="{{ store.name_full_en }} guests — Wagyu Steak &amp; Burger" loading="lazy" />
+        <img class="customer-slide" src="/assets/family04.jpg" alt="{{ store.name_full_en }} guests — Wagyu Steak &amp; Burger" loading="lazy" />
       </div>
       <div class="customer-dots">
         <span class="customer-dot"></span>
@@ -482,7 +482,7 @@ eleventyComputed:
 
       <div class="img-frame reveal" style="margin-bottom:20px; padding:0;">
         <div class="img-frame-inner" style="aspect-ratio:16/7; position:relative;">
-          <img src="/assets/interior.jpg" alt="{{ store.name_short }} Interior — Wagyu Steak &amp; Burger" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" />
+          <img src="/assets/interior.jpg" alt="{{ store.name_full_en }} Interior — Wagyu Steak &amp; Burger" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" />
         </div>
       </div>
 
@@ -493,7 +493,7 @@ eleventyComputed:
             <p style="font-size:10px; color:rgba(201,168,76,.85); letter-spacing:.18em; margin-bottom:6px; font-weight:500;">SHOP NAME · 店名</p>
             <p style="font-family:'Cormorant Garamond', serif; font-size:15px; font-weight:400; line-height:1.5; margin-bottom:2px; color:#18140c;">Japanese Food Wagyu Restaurant</p>
             <p style="font-family:'Cormorant Garamond', serif; font-size:13px; font-style:italic; font-weight:300; color:rgba(24,20,12,.65); line-height:1.5; margin-bottom:2px;">( Halal )</p>
-            <p style="font-family:'Cormorant Garamond', serif; font-size:14px; font-weight:400; line-height:1.5; color:#18140c;">Steak &amp; Burger · {{ store.name_short }}</p>
+            <p style="font-family:'Cormorant Garamond', serif; font-size:14px; font-weight:400; line-height:1.5; color:#18140c;">Steak &amp; Burger · {{ store.name_full_en }}</p>
           </div>
         </div>
         <div class="info-row reveal d2">
@@ -541,7 +541,7 @@ eleventyComputed:
       ( Halal )
     </p>
     <p style="font-family:'Cormorant Garamond', serif; font-size:clamp(.95rem,3.2vw,1.15rem); color:#f5ede0; letter-spacing:.05em; line-height:1.55; max-width:560px; margin:0 auto 18px;">
-      Steak &amp; Burger · {{ store.name_short }}
+      Steak &amp; Burger · {{ store.name_full_en }}
     </p>
     <p style="font-size:10px; color:rgba(245,237,224,.32); letter-spacing:.28em; margin-bottom:22px;">EST. 1962 &nbsp;·&nbsp; 5TH GEN. BUTCHER</p>
     <div style="display:flex; justify-content:center; gap:28px;">
