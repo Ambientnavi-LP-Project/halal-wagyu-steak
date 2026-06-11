@@ -1,566 +1,127 @@
----
-pagination:
-  data: stores.stores
-  size: 1
-  alias: store
-permalink: "/{{ store.region }}/{{ store.slug }}/index.html"
-eleventyComputed:
-  title: "{{ store.name_full_en }}"
----
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5DGT9H6L');</script>
-<!-- End Google Tag Manager -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="{{ store.name_full_en }} — Japanese Wagyu. Muslim-Friendly. 5th-generation butcher since 1962." />
-  <title>{{ store.name_full_en }}</title>
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet" />
-
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: #faf8f4;
-      color: #18140c;
-      font-family: 'Noto Sans JP', sans-serif;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
+/**
+ * 店舗データ定義(steak業態)
+ * 新しい店舗を追加するときは、この配列に store オブジェクトを追加するだけ。
+ * Eleventy が自動で /{region}/{slug}/index.html を生成します。
+ */
+module.exports = {
+  brand: {
+    domain: "steak.halal-food-wagyu.com",
+    ga4_id: "G-HQ62CMRJKR",
+    brand_name: "Halal Wagyu Steak & Burger",
+    brand_slug: "steak"
+  },
+  stores: [
+    {
+      // ===== URL/識別 =====
+      region: "tokyo",
+      slug: "ginzatsukiji",
+      // ===== 店名 =====
+      name_full_en: "Japanese Food Wagyu Restaurant (Halal) Steak & Burger · 5W-Tokyo-Ginza",
+      name_cn: "5W-東京-銀座",
+      hero_place: "Tokyo's Ginza",
+      // ===== 立地 =====
+      city: "Ginza, Tokyo",
+      station_en: "Ginza Station",
+      address_en: "The Forme Ginza B1, 8-18-4 Ginza, Chuo-ku, Tokyo",
+      address_postal: "104-0061",
+      // ===== 連絡先 =====
+      tel_display: "",
+      tel_raw: "",
+      // ===== 営業 =====
+      hours: "10:00 – 1:00",
+      hours_note: "Open Daily",
+      // ===== 予約・地図 =====
+      tablecheck_url: "https://www.tablecheck.com/ja/halal-steak-ginzatsukiji-5w-tokyo/reserve/message",
+      maps_link: "https://maps.app.goo.gl/7NtBgFuTmbDSjf2r8",
+      map_embed: "",
+      // ===== 評価 =====
+      rating: "4.7",
+      rating_count: "",
+      rating_source: "Google Review"
+    },
+    {
+      region: "osaka",
+      slug: "ohatsu-tenjin",
+      name_full_en: "Wagyu Steak & Hamburger (Halal Gluten Free) Osaka Station Restaurant",
+      name_cn: "",
+      hero_place: "Osaka's Umeda",
+      city: "Umeda, Osaka",
+      station_en: "Higashi-Umeda Station",
+      address_en: "MK Sonezaki Bldg. 1F, 2-14-5 Sonezaki, Kita-ku, Osaka",
+      address_postal: "530-0057",
+      tel_display: "090-2411-0668",
+      tel_raw: "+819024110668",
+      hours: "11:00 \u2013 23:00",
+      hours_note: "Open Daily",
+      tablecheck_url: "https://www.tablecheck.com/shops/halal-wagyu-ohatsutennjin/reserve",
+      maps_link: "https://maps.app.goo.gl/nGkUcbYJDwVXLnSJ8",
+      map_embed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d244.25082538630375!2d135.501323!3d34.7009307!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e737d3d79fad%3A0x34aa836911c15bd3!2sWagyu%20Steak%20%26%20Hamburger%20(Halal%20Gluten%20Free)%20Osaka%20Station%20Restaurant!5e1!3m2!1sja!2sjp!4v1780407564711!5m2!1sja!2sjp",
+      rating: "4.7",
+      rating_count: "1,224",
+      rating_source: "Google Review"
+    },
+    {
+      region: "tokyo",
+      slug: "higashi-ginza",
+      name_full_en: "Japanese Food Wagyu Beef (Halal) Ramen Hamburger Ginza Restaurant 5W-Tokyo (东京和牛拉麺)",
+      name_cn: "",
+      hero_place: "Tokyo's Ginza",
+      city: "Ginza, Tokyo",
+      station_en: "Higashi-ginza Station",
+      address_en: "3-12-16 Ginza, Chuo-ku, Tokyo",
+      address_postal: "104-0061",
+      tel_display: "03-6278-7139",
+      tel_raw: "+81362787139",
+      hours: "11:00 \u2013 1:00",
+      hours_note: "Open Daily",
+      tablecheck_url: "https://www.tablecheck.com/shops/halal-wagyu-ginza-5w-tokyo/reserve",
+      maps_link: "https://maps.app.goo.gl/4EfmHFrLB2qsBVn88",
+      map_embed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7956332.37488466!2d132.3809798!3d35.1867375!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b8a1b1f7ca7%3A0x8d81bba28006abf!2zSmFwYW5lc2UgRm9vZCBXYWd5dSBCZWVmIChIYWxhbCkgUmFtZW4gSGFtYnVyZ2VyIEdpbnphIFJlc3RhdXJhbnQgNVctVG9reW8gKOS4nOS6rOWSjOeJm-aLiem6uik!5e1!3m2!1sja!2sjp!4v1780407684524!5m2!1sja!2sjp",
+      rating: "4.8",
+      rating_count: "4,965",
+      rating_source: "Google Review"
+    },
+    {
+      region: "tokyo",
+      slug: "asakusa",
+      name_full_en: "Asakusa Restaurant Wagyu (Halal) Steak Hamburger & Ramen (Japanese food) Godaime 1962",
+      name_cn: "",
+      hero_place: "Tokyo's Asakusa",
+      city: "Asakusa, Tokyo",
+      station_en: "Asakusa Station",
+      address_en: "Kominka 2F, 3-27-6 Asakusa, Taito-ku, Tokyo",
+      address_postal: "111-0032",
+      tel_display: "090-5607-3945",
+      tel_raw: "+819056073945",
+      hours: "11:00 \u2013 23:00",
+      hours_note: "Open Daily",
+      tablecheck_url: "https://www.tablecheck.com/shops/halal-omakase-asakusa/reserve",
+      maps_link: "https://maps.app.goo.gl/",
+      map_embed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d994541.8503808195!2d136.9960645!3d35.1867127!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188f62d00bb699%3A0xa8daec37fe3cc7a5!2sAsakusa%20Restaurant%20Wagyu%20(Halal)%20Steak%20Hamburger%20%26%20Ramen%20(Japanese%20food)%20Godaime%201962!5e1!3m2!1sja!2sjp!4v1780407847374!5m2!1sja!2sjp",
+      rating: "4.8",
+      rating_count: "1,264",
+      rating_source: "Google Review"
+    },
+    {
+      region: "tokyo",
+      slug: "shinokubo",
+      name_full_en: "Wagyu Steak & Hamburger Pizza (Halal Vegan Gluten Free) Kabuki Shin Okubo Restaurant 新宿 和牛 拉面 餐厅",
+      name_cn: "",
+      hero_place: "Tokyo's Shin-Okubo",
+      city: "Shin-Okubo, Tokyo",
+      station_en: "Shin-Okubo Station",
+      address_en: "1F, 1-1-28 Hyakunincho, Shinjuku-ku, Tokyo",
+      address_postal: "169-0073",
+      tel_display: "090-2265-7102",
+      tel_raw: "+819022657102",
+      hours: "11:00 \u2013 1:00",
+      hours_note: "Open Daily",
+      tablecheck_url: "https://www.tablecheck.com/shops/halal-wagyu-shinokubo-5w-tokyo/reserve",
+      maps_link: "https://maps.app.goo.gl/YZTCCng83Uo3sBWJ9",
+      map_embed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d965.080269282117!2d139.7020532!3d35.698213!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d0a84c996ff%3A0xa473959440d7db81!2zV2FneXUgU3RlYWsgJiBIYW1idXJnZXIgUGl6emEgKEhhbGFsIFZlZ2FuIEdsdXRlbiBGcmVlKSBLYWJ1a2kgU2hpbiBPa3VibyBSZXN0YXVyYW50IOaWsOWuvyDlkozniZsg5ouJ6Z2iIOmkkOWOhQ!5e1!3m2!1sja!2sjp!4v1780408000862!5m2!1sja!2sjp",
+      rating: "4.9",
+      rating_count: "1,273",
+      rating_source: "Google Review"
     }
-
-    /* ── Reveal on scroll ── */
-    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1); }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .d1 { transition-delay: .08s; } .d2 { transition-delay: .18s; } .d3 { transition-delay: .30s; } .d4 { transition-delay: .44s; }
-
-    .gold-rule { display: block; width: 36px; height: 1.5px; background: #c9a84c; margin: 12px auto 0; }
-    .label { font-size: 10px; letter-spacing: .48em; color: #c9a84c; font-family: 'Cormorant Garamond', serif; text-transform: uppercase; }
-
-    .halal-sticky { position: fixed; top: 14px; right: 14px; z-index: 200; display: flex; align-items: center; gap: 7px; padding: 7px 14px; border-radius: 100px; border: 1px solid rgba(201,168,76,.55); background: rgba(8,8,8,.82); backdrop-filter: blur(12px); }
-    .halal-dot { width: 7px; height: 7px; border-radius: 50%; background: #c9a84c; }
-    .halal-sticky span { font-size: 10px; letter-spacing: .14em; color: #f5ede0; font-weight: 500; }
-
-    .walkin-bar { background: #e63c2f; font-size: 11px; letter-spacing: .18em; font-weight: 600; text-align: center; padding: 9px 16px; color: #fff; }
-
-    .img-frame { padding: 0 20px; margin-bottom: 20px; }
-    .img-frame-inner { border-radius: 4px; overflow: hidden; position: relative; }
-    .section-gap { height: 10px; background: #faf8f4; }
-
-    .hero-wrap { position: relative; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding: 0 20px 52px; overflow: hidden; background: #080808; }
-    .triptych { position: absolute; inset: 20px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; border-radius: 4px; overflow: hidden; }
-    .tri-col { position: relative; overflow: hidden; }
-    .tri-col video, .tri-col .tri-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-    .tri-col .tri-img { background-size: cover; background-position: center; }
-
-    @keyframes kb { from { transform: scale(1.0); } to { transform: scale(1.1); } }
-    .tri-col .tri-img, .tri-col video { animation: kb 14s ease-in-out infinite alternate; }
-    .tri-col:nth-child(2) .tri-img, .tri-col:nth-child(2) video { animation-delay: -5s; }
-    .tri-col:nth-child(3) .tri-img, .tri-col:nth-child(3) video { animation-delay: -10s; }
-
-    @keyframes col-up { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0% 0 0 0); } }
-    .tri-col:nth-child(1) { animation: col-up .95s .0s cubic-bezier(.22,1,.36,1) both; }
-    .tri-col:nth-child(2) { animation: col-up .95s .14s cubic-bezier(.22,1,.36,1) both; }
-    .tri-col:nth-child(3) { animation: col-up .95s .28s cubic-bezier(.22,1,.36,1) both; }
-
-    @media (max-width: 767px) {
-      .triptych { grid-template-columns: 1fr; }
-      .tri-col:nth-child(2), .tri-col:nth-child(3) { display: none; }
-    }
-
-    .hero-slideshow { position: absolute; inset: 0; overflow: hidden; }
-    .hero-slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; animation: hero-slide-fade 12s infinite; will-change: opacity, transform; }
-    @keyframes hero-slide-fade { 0% { opacity: 0; transform: scale(1.0); } 8% { opacity: 1; } 50% { opacity: 1; transform: scale(1.08); } 58% { opacity: 0; transform: scale(1.08); } 100% { opacity: 0; transform: scale(1.0); } }
-    .hero-slide:nth-child(1) { animation-delay: 0s; }
-    .hero-slide:nth-child(2) { animation-delay: 6s; }
-    .hero-slideshow .hero-slide:only-child { animation: none; opacity: 1; }
-
-    /* ── Customer photo slideshow (16:9) ── */
-    .customer-slideshow { position: relative; aspect-ratio: 16/9; overflow: hidden; }
-    .customer-slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; animation: customer-fade 24s infinite; will-change: opacity, transform; }
-    @keyframes customer-fade { 0% { opacity: 0; transform: scale(1.0); } 4% { opacity: 1; } 25% { opacity: 1; transform: scale(1.06); } 29% { opacity: 0; transform: scale(1.06); } 100% { opacity: 0; transform: scale(1.0); } }
-    .customer-slide:nth-child(1) { animation-delay: 0s; }
-    .customer-slide:nth-child(2) { animation-delay: 6s; }
-    .customer-slide:nth-child(3) { animation-delay: 12s; }
-    .customer-slide:nth-child(4) { animation-delay: 18s; }
-    .customer-dots { display: flex; justify-content: center; gap: 7px; margin-top: 14px; }
-    .customer-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(201,168,76,.3); animation: customer-dot-pulse 24s infinite; }
-    @keyframes customer-dot-pulse { 0%,25% { background: #c9a84c; } 29%,100% { background: rgba(201,168,76,.3); } }
-    .customer-dot:nth-child(1) { animation-delay: 0s; }
-    .customer-dot:nth-child(2) { animation-delay: 6s; }
-    .customer-dot:nth-child(3) { animation-delay: 12s; }
-    .customer-dot:nth-child(4) { animation-delay: 18s; }
-
-    .tri-overlay { position: absolute; inset: 0; background: rgba(8,8,8,.12); }
-    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 0%, transparent 45%, rgba(8,8,8,.7) 70%, rgba(8,8,8,.97) 100%); pointer-events: none; }
-
-    @keyframes pulse-ring { 0% { box-shadow: 0 0 0 0 rgba(230,60,47,.5); } 70% { box-shadow: 0 0 0 16px rgba(230,60,47,0); } 100% { box-shadow: 0 0 0 0 rgba(230,60,47,0); } }
-    .btn-primary { display: flex; align-items: center; justify-content: center; gap: 8px; border-radius: 100px; background: #e63c2f; color: #fff; padding: 16px 28px; font-size: 15px; letter-spacing: .05em; text-decoration: none; font-weight: 600; animation: pulse-ring 2.4s infinite; transition: background .2s, transform .2s; }
-    .btn-primary:hover { background: #c9281e; transform: translateY(-2px); }
-    .btn-secondary { display: flex; align-items: center; justify-content: center; gap: 8px; border-radius: 100px; background: transparent; color: #18140c; padding: 15px 28px; font-size: 14px; letter-spacing: .05em; text-decoration: none; border: 1px solid rgba(24,20,12,.3); transition: background .2s; }
-    .btn-secondary:hover { background: rgba(24,20,12,.06); }
-
-    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
-    .scroll-arrow { position: absolute; bottom: 20px; left: 50%; color: rgba(245,237,224,.35); font-size: 18px; animation: bounce 1.9s ease-in-out infinite; }
-
-    .marquee-wrap { background: #faf8f4; overflow: hidden; border-top: 1px solid rgba(201,168,76,.3); border-bottom: 1px solid rgba(201,168,76,.3); padding: 13px 0; }
-    @keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    .marquee-track { display: flex; white-space: nowrap; animation: marquee-scroll 22s linear infinite; will-change: transform; }
-    .marquee-track:hover { animation-play-state: paused; }
-    .marquee-item { display: inline-flex; align-items: center; gap: 10px; padding: 0 40px; font-family: 'Cormorant Garamond', serif; font-size: clamp(.85rem, 3vw, 1rem); font-weight: 400; letter-spacing: .22em; color: #c9a84c; }
-    .marquee-dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(201,168,76,.45); flex-shrink: 0; }
-
-    .gallery-strip { display: flex; gap: 3px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
-    .gallery-strip::-webkit-scrollbar { display: none; }
-    .gallery-item { flex: 0 0 72vw; max-width: 280px; scroll-snap-align: start; position: relative; overflow: hidden; aspect-ratio: 3/4; border-radius: 2px; }
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
-    .gallery-item:hover img { transform: scale(1.05); }
-    .gallery-item-label { position: absolute; bottom: 12px; left: 12px; font-size: 10px; letter-spacing: .18em; color: rgba(250,248,244,.9); background: rgba(24,20,12,.45); backdrop-filter: blur(6px); padding: 5px 10px; border-radius: 100px; font-weight: 500; }
-
-    .menu-grid { display: flex; flex-direction: column; gap: 20px; }
-    .menu-card { background: #ffffff; border: 1px solid rgba(201,168,76,.22); border-radius: 4px; overflow: hidden; }
-    .menu-card-img-wrap { padding: 12px 12px 0; }
-    .menu-card-img-wrap-inner { border-radius: 3px; overflow: hidden; aspect-ratio: 16/9; }
-    .menu-card-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s ease; }
-    .menu-card:hover .menu-card-img { transform: scale(1.04); }
-    .menu-card-body { padding: 16px 18px 18px; }
-    .menu-card-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 6px; color: #18140c; }
-    .menu-card-desc { font-size: 11px; color: rgba(24,20,12,.5); line-height: 1.75; font-weight: 300; margin-bottom: 12px; }
-    .menu-card-price { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: #c9a84c; letter-spacing: .06em; }
-
-    .info-row { display: flex; gap: 14px; align-items: flex-start; background: #ece8df; padding: 16px; border-radius: 3px; }
-    .info-icon { color: #c9a84c; font-size: 16px; flex-shrink: 0; margin-top: 1px; }
-
-    .wagyu-text-wrap { max-width: 360px; }
-    @media (min-width: 768px) { .wagyu-text-wrap { max-width: 860px; } }
-
-    .google-rating-block { display: flex; flex-direction: column; gap: 20px; }
-    .google-rating-img { width: 100%; }
-    .google-rating-text { display: flex; flex-direction: column; justify-content: center; }
-    @media (min-width: 768px) {
-      .google-rating-block { flex-direction: row; align-items: center; gap: 40px; max-width: 800px; }
-      .google-rating-img { width: 340px; flex-shrink: 0; }
-    }
-
-    .review-carousel { overflow-x: auto; display: flex; align-items: flex-start; gap: 12px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 4px; margin: 0 -24px; padding-left: 0; padding-right: 24px; }
-    .review-carousel::-webkit-scrollbar { display: none; }
-    .review-carousel img { flex: 0 0 82vw; max-width: 300px; border-radius: 12px; height: auto; display: block; scroll-snap-align: start; box-shadow: 0 2px 12px rgba(24,20,12,.1); }
-    @media (min-width: 768px) {
-      .review-carousel { overflow-x: visible; flex-wrap: nowrap; align-items: flex-start; scroll-snap-type: none; margin: 0; gap: 10px; }
-      .review-carousel img { flex: 1 1 0; width: 0; max-width: none; scroll-snap-align: none; }
-      .review-swipe-hint { display: none; }
-    }
-  </style>
-</head>
-<body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DGT9H6L"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
-{# === 店名を1本に統合（(Halal) 含めフル表示・長ければ自動で折り返し） === #}
-{% set shopName = store.name_full_en %}
-
-  <div class="walkin-bar">
-    WALK-INS WELCOME &nbsp;·&nbsp; ウォークイン歓迎 &nbsp;·&nbsp; ترحيب بالزوار بدون حجز
-  </div>
-
-  <!-- HERO -->
-  <section class="hero-wrap">
-    <div class="triptych">
-      <div class="tri-col">
-        <video autoplay muted loop playsinline preload="auto">
-          <source src="/assets/hero-left-steak.mp4" type="video/mp4" />
-        </video>
-        <div class="tri-overlay"></div>
-      </div>
-      <div class="tri-col">
-        <div class="hero-slideshow">
-          <img class="hero-slide" src="/assets/{{ store.slug }}/hero-1.jpg" alt="{{ store.name_full_en }} Wagyu Steak &amp; Burger" />
-          <img class="hero-slide" src="/assets/{{ store.slug }}/hero-2.jpg" alt="{{ store.name_full_en }} signature menu" />
-        </div>
-        <div class="tri-overlay"></div>
-      </div>
-      <div class="tri-col">
-        <video autoplay muted loop playsinline preload="auto" onloadedmetadata="this.currentTime=3">
-          <source src="/assets/hero-right-stedon.mp4" type="video/mp4" />
-        </video>
-        <div class="tri-overlay"></div>
-      </div>
-    </div>
-    <div class="hero-overlay"></div>
-
-    <div class="reveal" style="position:absolute; top:42px; left:50%; transform:translateX(-50%); text-align:center; z-index:1; width:92%; max-width:560px;">
-      <p style="font-family:'Cormorant Garamond', serif; font-size:clamp(.9rem,3.2vw,1.1rem); letter-spacing:.06em; color:#f5ede0; font-weight:400; line-height:1.45;">
-        {{ shopName }}
-      </p>
-    </div>
-
-    <div style="position:relative; z-index:1; text-align:center; width:100%; max-width:360px;">
-      <p class="label reveal d1" style="margin-bottom:14px;">GINZA · TOKYO · 銀座</p>
-      <h1 class="reveal d2" style="font-family:'Bebas Neue'; font-size:clamp(2.5rem,10vw,4rem); font-weight:700; line-height:1.1; letter-spacing:-.01em; margin-bottom:14px; color:#f5ede0;">
-        {{ store.hero_place }}<br/>
-        <em style="color:#c9a84c; font-style:normal;">Legendary</em><br/>
-        Wagyu Steak &amp; Burger
-      </h1>
-      <p class="reveal d3" style="font-size:clamp(.85rem,3vw,.95rem); color:rgba(245,237,224,.72); font-weight:300; letter-spacing:.06em; margin-bottom:6px;">
-        A True Wagyu Experience from the 5th Generation Butcher.
-      </p>
-      <p class="reveal d3" style="font-family:'Cormorant Garamond', serif; font-size:clamp(.78rem,2.6vw,.92rem); color:rgba(201,168,76,.88); letter-spacing:.08em; font-weight:400; margin-bottom:4px;">
-        Japanese Food Wagyu Restaurant &nbsp;·&nbsp; Muslim-Friendly
-      </p>
-      <p class="reveal d3" style="font-size:clamp(.66rem,2.3vw,.74rem); color:rgba(245,237,224,.38); letter-spacing:.18em; margin-bottom:28px;">
-        STEAK &amp; BURGER · {{ store.name_full_en | upper }} · SINCE 1962
-      </p>
-
-      <div class="reveal d4" style="display:flex; flex-direction:column; gap:12px;">
-        <a href="{{ store.maps_link }}" target="_blank" rel="noopener" class="btn-primary" data-ga-event="directions_click" data-ga-location="hero">
-          Get Directions
-        </a>
-        <a href="{{ store.tablecheck_url }}?utm_source=lp&utm_medium=referral" target="_blank" rel="noopener" class="btn-secondary" style="color:#f5ede0; border-color:rgba(245,237,224,.35);" data-ga-event="reserve_click" data-ga-location="hero">
-          Reserve a Table
-        </a>
-      </div>
-    </div>
-    <div class="scroll-arrow">↓</div>
-  </section>
-
-  <!-- WAGYU HERO TEXT -->
-  <section style="background:#faf8f4; padding:80px 32px 72px; text-align:center;">
-    <div class="wagyu-text-wrap" style="margin:0 auto;">
-      <p class="label reveal" style="margin-bottom:22px; letter-spacing:.55em;">MIYAZAKI · JAPAN</p>
-      <h2 class="reveal" style="font-family:'Bebas Neue', serif; font-size: clamp(2.6rem, 11vw, 4.2rem); font-weight: 700; line-height: 1.05; letter-spacing: -.01em; margin-bottom: 6px; color: #18140c;">AUTHENTIC<br/>JAPANESE<br/>WAGYU</h2>
-      <p class="reveal d1" style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.1rem, 4.5vw, 1.6rem); font-weight: 300; letter-spacing: .32em; color: #c9a84c; margin-top: 14px; margin-bottom: 40px;">Ḥalāl BEEF</p>
-      <span class="gold-rule reveal" style="margin-bottom:40px; display:block;"></span>
-      <p class="reveal d2" style="font-size:clamp(.88rem,3vw,.98rem); line-height:2; color:rgba(24,20,12,.65); font-weight:300; letter-spacing:.03em; margin-bottom:22px; text-align:left;">
-        For us, "real Wagyu" is not industrially raised beef focused only on excessive marbling and fat. True Wagyu is raised carefully and healthily, with rich flavor and tenderness in the red meat itself. The umami should come not only from the fat, but from the quality of the meat as a whole — that is what I believe authentic Wagyu truly is.
-      </p>
-      <p class="reveal d3" style="font-size:clamp(.88rem,3vw,.98rem); line-height:2; color:rgba(24,20,12,.65); font-weight:300; letter-spacing:.03em; margin-bottom:22px; text-align:left;">
-        To achieve this, we are deeply involved in every step: carefully raising cattle with our own standards, processing the meat while preserving freshness, and serving it through thoughtful preparation and cooking. Today, this style of Wagyu is gaining the most attention among Japanese gourmets and chefs.
-      </p>
-      <p class="reveal d3" style="font-size:clamp(.88rem,3vw,.98rem); line-height:2; color:rgba(24,20,12,.65); font-weight:300; letter-spacing:.03em; margin-bottom:22px; text-align:left;">
-        That is why we want guests from around the world to experience this "true taste" of Japan at our restaurant.
-      </p>
-      <p class="reveal d3" style="font-size:clamp(.88rem,3vw,.98rem); line-height:2; color:rgba(24,20,12,.65); font-weight:300; letter-spacing:.03em; margin-bottom:22px; text-align:left;">
-        To ensure Muslim guests can also dine with peace of mind, we provide Wagyu processed at one of the few halal-certified slaughterhouses in Japan.
-      </p>
-      <p class="reveal d3" style="font-size:clamp(.88rem,3vw,.98rem); line-height:2; color:rgba(24,20,12,.65); font-weight:300; letter-spacing:.03em; text-align:left;">
-        Our goal is to create a place where anyone — regardless of nationality, religion, age, or gender — can comfortably enjoy authentic Japanese Wagyu together.
-      </p>
-    </div>
-  </section>
-
-  <!-- BURGER IMAGE -->
-  <div class="img-frame" style="margin-bottom:0; background:#faf8f4;">
-    <div class="img-frame-inner reveal">
-      <img src="/assets/wagyu-raw-hero.jpg" alt="{{ store.name_full_en }} Wagyu Steak &amp; Burger — 宮崎和牛" style="width:100%; display:block; aspect-ratio:16/9; object-fit:cover; object-position:center center;" />
-    </div>
-  </div>
-
-  <!-- MARQUEE -->
-  <div class="marquee-wrap">
-    <div class="marquee-track">
-      <span class="marquee-item" style="color:#18140c; font-weight:500;">{{ store.name_full_en }} · Wagyu Steak &amp; Burger</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-item">Japanese Wagyu</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-item">Muslim-Friendly · ムスリムフレンドリー</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-item">5th Gen. Butcher Since 1962</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-item">Walk-ins Welcome · ウォークイン歓迎</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-item" style="color:#18140c; font-weight:500;">{{ store.name_full_en }} · Wagyu Steak &amp; Burger</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-item">Japanese Wagyu</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-item">Muslim-Friendly · ムスリムフレンドリー</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-item">5th Gen. Butcher Since 1962</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-item">Walk-ins Welcome · ウォークイン歓迎</span>
-      <span class="marquee-dot"></span>
-    </div>
-  </div>
-
-  <!-- OFFICIAL NAME -->
-  <section style="background:#080808; padding:64px 24px; position:relative; overflow:hidden;">
-    <div style="position:absolute; top:18px; left:18px; width:28px; height:28px; border-top:1px solid rgba(201,168,76,.45); border-left:1px solid rgba(201,168,76,.45);"></div>
-    <div style="position:absolute; top:18px; right:18px; width:28px; height:28px; border-top:1px solid rgba(201,168,76,.45); border-right:1px solid rgba(201,168,76,.45);"></div>
-    <div style="position:absolute; bottom:18px; left:18px; width:28px; height:28px; border-bottom:1px solid rgba(201,168,76,.45); border-left:1px solid rgba(201,168,76,.45);"></div>
-    <div style="position:absolute; bottom:18px; right:18px; width:28px; height:28px; border-bottom:1px solid rgba(201,168,76,.45); border-right:1px solid rgba(201,168,76,.45);"></div>
-    <div style="max-width:820px; margin:0 auto; text-align:center;">
-      <p class="label reveal" style="margin-bottom:26px; color:#c9a84c;">SHOP NAME</p>
-      <p class="reveal d1" style="font-family:'Cormorant Garamond', serif; font-size:clamp(1.2rem,4.6vw,1.7rem); font-weight:400; line-height:1.5; color:#f5ede0; letter-spacing:.05em; margin-bottom:22px;">
-        {{ shopName }}
-      </p>
-      <span class="gold-rule reveal d2" style="margin:0 auto;"></span>
-    </div>
-  </section>
-
-  <!-- STORY -->
-  <section style="background:#faf8f4; padding:72px 0;">
-    <div style="padding:48px 24px 0; max-width:820px; margin:0 auto; text-align:center;">
-      <p class="label reveal" style="margin-bottom:14px;">OUR STORY</p>
-      <h2 class="reveal" style="font-family:'Bebas Neue'; font-size:clamp(1.9rem,7vw,2.8rem); font-weight:600; line-height:1.2; margin-bottom:10px;">
-        The 5th Generation<br/>Wagyu Butcher
-      </h2>
-      <span class="gold-rule reveal" style="margin-bottom:28px;"></span>
-      <p class="reveal" style="font-size:clamp(.85rem,2vw,.95rem); line-height:2; color:rgba(24,20,12,.75); font-weight:300; letter-spacing:.03em; margin-top:28px;">
-        As Wagyu craftsmen, we raise our cattle in Miyazaki using our own original blended feed, carefully developed to create truly delicious red meat.<br/><br/>
-        We are committed to producing Miyazaki Wagyu — highly regarded around the world and often considered equal to the finest Kobe Beef — while continuing to pursue the ideal balance of flavor, tenderness, and rich umami.<br/><br/>
-        One of the defining characteristics of Miyazaki Wagyu is the natural sweetness and rich aroma of the meat itself.<br/><br/>
-        For guests who truly appreciate authentic Wagyu and want to fully enjoy the texture, flavor, and character of the meat, we warmly invite you to experience it for yourself.
-      </p>
-    </div>
-  </section>
-
-  <!-- FARM IMAGE -->
-  <div class="img-frame" style="margin-bottom:0; background:#faf8f4;">
-    <div class="img-frame-inner reveal">
-      <img src="/assets/farm.jpg" alt="宮崎和牛の生産現場 — {{ store.name_full_en }} Wagyu Steak &amp; Burger" style="width:100%; display:block; aspect-ratio:16/9; object-fit:cover; object-position:center center;" />
-    </div>
-  </div>
-
-  <!-- SOCIAL PROOF -->
-  <section style="background:#f2ede4; padding:72px 0;">
-    <div style="max-width:360px; margin:0 auto; text-align:center; margin-bottom:32px; padding:0 24px;">
-      <p class="label reveal" style="margin-bottom:12px;">RECOGNITION</p>
-      <h2 class="reveal" style="font-family:'Bebas Neue'; font-size:clamp(1.6rem,6vw,2.2rem); font-weight:600; line-height:1.25;">
-        Trusted by Travelers<br/>Around the World
-      </h2>
-      <span class="gold-rule reveal"></span>
-    </div>
-
-    <div class="reveal google-rating-block" style="max-width:720px; margin:0 auto 28px; padding:0 24px;">
-      <img src="/assets/google_rating.jpg" alt="Google Maps {{ store.rating }}評価" class="google-rating-img" style="border-radius:12px; display:block; box-shadow:0 2px 12px rgba(24,20,12,.1);" />
-      <div class="google-rating-text">
-        <p style="font-family:'Bebas Neue', sans-serif; font-size:clamp(1.4rem,3vw,2rem); letter-spacing:.08em; color:#c9a84c; margin-bottom:6px;">Thanks!<br/>{{ store.rating_source }}</p>
-        <p style="font-family:'Bebas Neue', sans-serif; font-size:clamp(2.8rem,6vw,4rem); line-height:1; color:#18140c; margin-bottom:6px;">
-          {{ store.rating }} <span style="color:#FBBC05; font-size:70%;">★★★★★</span>
-        </p>
-        <p style="font-size:clamp(.88rem,1.5vw,1rem); color:#18140c; font-weight:500; letter-spacing:.04em; line-height:1.8;">
-          Rated {{ store.rating }} / 5.0 on {{ store.rating_source }}<br/>
-          Trusted reviews from wagyu lovers and steak enthusiasts around the world.
-        </p>
-      </div>
-    </div>
-
-    <div class="review-carousel reveal" style="padding:0 20px;">
-      <img src="/assets/review_4102.jpg" alt="Google review" loading="lazy" />
-      <img src="/assets/review_4107.jpg" alt="Google review" loading="lazy" />
-      <img src="/assets/review_4108.jpg" alt="Google review" loading="lazy" />
-      <img src="/assets/review_4106.jpg" alt="Google review" loading="lazy" />
-      <img src="/assets/review_4105.jpg" alt="Google review" loading="lazy" />
-    </div>
-    <p class="review-swipe-hint reveal" style="font-size:10px; color:rgba(24,20,12,.3); letter-spacing:.12em; text-align:right; margin-top:10px; padding:0 24px;">← swipe →</p>
-  </section>
-
-  <!-- CUSTOMER PHOTOS -->
-  <section style="background:#faf8f4; padding:72px 0;">
-    <div style="max-width:360px; margin:0 auto; text-align:center; margin-bottom:32px; padding:0 24px;">
-      <p class="label reveal" style="margin-bottom:12px;">OUR GUESTS</p>
-      <h2 class="reveal" style="font-family:'Bebas Neue'; font-size:clamp(1.6rem,6vw,2.2rem); font-weight:600; line-height:1.25;">
-        Smiles From<br/>Around the World
-      </h2>
-      <span class="gold-rule reveal"></span>
-    </div>
-
-    <div class="img-frame reveal" style="margin-bottom:0;">
-      <div class="img-frame-inner customer-slideshow">
-        <img class="customer-slide" src="/assets/family01.jpg" alt="{{ store.name_full_en }} guests — Wagyu Steak &amp; Burger" loading="lazy" />
-        <img class="customer-slide" src="/assets/family02.jpg" alt="{{ store.name_full_en }} guests — Wagyu Steak &amp; Burger" loading="lazy" />
-        <img class="customer-slide" src="/assets/family03.jpg" alt="{{ store.name_full_en }} guests — Wagyu Steak &amp; Burger" loading="lazy" />
-        <img class="customer-slide" src="/assets/family04.jpg" alt="{{ store.name_full_en }} guests — Wagyu Steak &amp; Burger" loading="lazy" />
-      </div>
-      <div class="customer-dots">
-        <span class="customer-dot"></span>
-        <span class="customer-dot"></span>
-        <span class="customer-dot"></span>
-        <span class="customer-dot"></span>
-      </div>
-    </div>
-  </section>
-
-  <!-- TRIPADVISOR -->
-  <section style="background:#faf8f4; padding:56px 24px; border-top:1px solid rgba(201,168,76,.15);">
-    <div style="max-width:900px; margin:0 auto;">
-      <div style="text-align:center; margin-bottom:28px;">
-        <p class="label reveal" style="margin-bottom:12px;">TRIPADVISOR</p>
-        <h2 class="reveal" style="font-family:'Bebas Neue'; font-size:clamp(1.4rem,5vw,2rem); font-weight:600; line-height:1.3;">
-          On August 17, 2025, our Ginza flagship store ranked<br/>
-          <em style="color:#c9a84c; font-style:normal;">No.1</em> in the Gourmet & Restaurant category<br/>in Central Tokyo on Tripadvisor.
-        </h2>
-        <span class="gold-rule reveal"></span>
-      </div>
-      <div class="reveal">
-        <img src="/assets/tripadvisor.jpg" alt="Tripadvisor Tokyo 2026 No.1 Ranking — Ginza Flagship Store" loading="lazy" style="width:100%; border-radius:8px; display:block;" />
-      </div>
-    </div>
-  </section>
-
-  <!-- MENU -->
-  <section style="background:#faf8f4; padding:72px 24px;">
-    <div style="max-width:900px; margin:0 auto;">
-      <div style="text-align:center; margin-bottom:40px;">
-        <p class="label reveal" style="margin-bottom:12px;">SIGNATURE MENU</p>
-        <h2 class="reveal" style="font-family:'Bebas Neue'; font-size:clamp(1.6rem,6vw,2.2rem); font-weight:600; line-height:1.25;">
-          Choose Your<br/>Wagyu Experience
-        </h2>
-        <span class="gold-rule reveal"></span>
-      </div>
-
-      <div class="menu-grid">
-        <div class="menu-card reveal d1">
-          <div class="menu-card-img-wrap">
-            <div class="menu-card-img-wrap-inner">
-              <img class="menu-card-img" src="/assets/steak.jpg" alt="Japanese Wagyu Steak Platinum" loading="lazy" />
-            </div>
-          </div>
-          <div class="menu-card-body">
-            <p class="menu-card-name">Japanese Wagyu Steak Platinum</p>
-            <p class="menu-card-desc">Japanese Wagyu (Tenderloin, Sirloin, Ribeye, etc.) · Premium cut · Chef's signature seasoning</p>
-          </div>
-        </div>
-        <div class="menu-card reveal d2">
-          <div class="menu-card-img-wrap">
-            <div class="menu-card-img-wrap-inner">
-              <img class="menu-card-img" src="/assets/wagyu-steak-rice-bowl.jpg" alt="Japanese Wagyu Steak Rice Bowl" loading="lazy" />
-            </div>
-          </div>
-          <div class="menu-card-body">
-            <p class="menu-card-name">Japanese Wagyu Steak Rice Bowl</p>
-            <p class="menu-card-desc">Japanese Wagyu steak · Fresh egg yolk · Signature tare sauce on rice</p>
-          </div>
-        </div>
-        <div class="menu-card reveal d3">
-          <div class="menu-card-img-wrap">
-            <div class="menu-card-img-wrap-inner">
-              <img class="menu-card-img" src="/assets/ramen.jpg" alt="Burger & Steak Combo" loading="lazy" />
-            </div>
-          </div>
-          <div class="menu-card-body">
-            <p class="menu-card-name">Burger & Steak Combo</p>
-            <p class="menu-card-desc">Japanese Wagyu patty · Grilled Wagyu steak · Signature house sauce · Value set available</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ACCESS + FINAL CTA -->
-  <section style="background:#f2ede4; padding:72px 24px; border-top:1px solid rgba(201,168,76,.2);">
-    <div style="max-width:900px; margin:0 auto;">
-      <div style="text-align:center; margin-bottom:32px;">
-        <p class="label reveal" style="margin-bottom:12px;">VISIT US</p>
-        <h2 class="reveal" style="font-family:'Bebas Neue'; font-size:clamp(1.6rem,6vw,2.2rem); font-weight:600; line-height:1.25;">
-          We're Waiting<br/>for You in Ginza
-        </h2>
-        <span class="gold-rule reveal"></span>
-      </div>
-
-      <div class="img-frame reveal" style="margin-bottom:20px; padding:0;">
-        <div class="img-frame-inner" style="aspect-ratio:16/7; position:relative;">
-          <img src="/assets/interior.jpg" alt="{{ store.name_full_en }} Interior — Wagyu Steak &amp; Burger" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" />
-        </div>
-      </div>
-
-      <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:28px;">
-        <div class="info-row reveal d1" style="border:1px solid rgba(201,168,76,.25); background:rgba(8,8,8,.04);">
-          <span class="info-icon">◆</span>
-          <div>
-            <p style="font-size:10px; color:rgba(201,168,76,.85); letter-spacing:.18em; margin-bottom:6px; font-weight:500;">SHOP NAME · 店名</p>
-            <p style="font-family:'Cormorant Garamond', serif; font-size:14px; font-weight:400; line-height:1.5; color:#18140c;">{{ shopName }}</p>
-          </div>
-        </div>
-        <div class="info-row reveal d2">
-          <span class="info-icon">—</span>
-          <div>
-            <p style="font-size:10px; color:rgba(24,20,12,.4); letter-spacing:.12em; margin-bottom:4px;">ADDRESS</p>
-            <p style="font-size:13px; font-weight:300; margin-bottom:3px;">{{ store.address_en }} {{ store.address_postal }}, Japan</p>
-            <p style="font-size:11px; color:rgba(24,20,12,.5);">Near {{ store.station_en }}</p>
-          </div>
-        </div>
-        <div class="info-row reveal d3">
-          <span class="info-icon">—</span>
-          <div>
-            <p style="font-size:10px; color:rgba(24,20,12,.4); letter-spacing:.12em; margin-bottom:4px;">HOURS</p>
-            <p style="font-size:13px; font-weight:300; margin-bottom:3px;">{{ store.hours }}</p>
-            <p style="font-size:11px; color:rgba(24,20,12,.5);">{{ store.hours_note }}</p>
-          </div>
-        </div>
-        <div class="info-row reveal d4" style="border:1px solid rgba(201,168,76,.2); background:rgba(201,168,76,.04);">
-          <span class="info-icon">✦</span>
-          <div>
-            <p style="font-size:10px; color:rgba(201,168,76,.7); letter-spacing:.12em; margin-bottom:4px;">HALAL INFO</p>
-            <p style="font-size:13px; font-weight:300; margin-bottom:3px;">Muslim-Friendly · Prayer space available</p>
-            <p style="font-size:11px; color:rgba(24,20,12,.5);">No pork · Muslim-friendly</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="reveal" style="display:flex; flex-direction:column; gap:12px;">
-        <a href="{{ store.maps_link }}" target="_blank" rel="noopener" class="btn-primary" data-ga-event="directions_click" data-ga-location="access">
-          Get Directions
-        </a>
-        <a href="{{ store.tablecheck_url }}?utm_source=lp&utm_medium=referral" target="_blank" rel="noopener" class="btn-secondary" data-ga-event="reserve_click" data-ga-location="access">
-          Reserve a Table
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <footer style="background:#080808; padding:44px 24px 32px; text-align:center; border-top:1px solid rgba(201,168,76,.1);">
-    <p style="font-family:'Cormorant Garamond', serif; font-size:clamp(.95rem,3.2vw,1.15rem); color:#f5ede0; letter-spacing:.05em; line-height:1.55; max-width:560px; margin:0 auto 18px;">
-      {{ shopName }}
-    </p>
-    <p style="font-size:10px; color:rgba(245,237,224,.32); letter-spacing:.28em; margin-bottom:22px;">EST. 1962 &nbsp;·&nbsp; 5TH GEN. BUTCHER</p>
-    <div style="display:flex; justify-content:center; gap:28px;">
-      <a href="{{ store.tablecheck_url }}?utm_source=lp&utm_medium=referral" target="_blank" rel="noopener" style="font-size:10px; color:rgba(245,237,224,.32); text-decoration:none; letter-spacing:.14em;" data-ga-event="reserve_click" data-ga-location="footer">RESERVATION</a>
-      <a href="{{ store.maps_link }}" target="_blank" rel="noopener" style="font-size:10px; color:rgba(245,237,224,.32); text-decoration:none; letter-spacing:.14em;" data-ga-event="directions_click" data-ga-location="footer">MAPS</a>
-    </div>
-  </footer>
-
-  <script>
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.07, rootMargin: '0px 0px -28px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-    window.addEventListener('load', () => {
-      document.querySelectorAll('.hero-wrap .reveal').forEach(el => el.classList.add('visible'));
-    });
-
-    /* === GA4 custom event tracking === */
-    (function(){
-      if (typeof gtag !== 'function') return;
-      document.addEventListener('click', function(e){
-        var el = e.target.closest('[data-ga-event]');
-        if (!el) return;
-        var evtName = el.getAttribute('data-ga-event');
-        var location = el.getAttribute('data-ga-location') || '';
-        gtag('event', evtName, {
-          'event_category': 'engagement',
-          'event_label': location,
-          'store_name': '{{ store.slug }}',
-          'store_area': '{{ store.region }}',
-          'brand': '{{ stores.brand.brand_slug }}'
-        });
-      }, true);
-    })();
-  </script>
-</body>
-</html>
+  ]
+};
