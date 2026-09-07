@@ -131,8 +131,8 @@ module.exports = {
       // ===== 予約・地図 =====（予約は電話案内・地図は非表示）
       reserve_system: "tablecheck",  // "tablecheck" | "form"
       tablecheck_url: "",          // 空 → 予約ボタンを電話案内に
-      maps_link: "",               // 非表示
-      maps_embed: "",              // 非表示
+      maps_link: "https://maps.app.goo.gl/P9zBmezUUi5SiUpWA",
+      maps_embed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1634.0308294847378!2d135.76445240962144!3d35.005161609978494!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600109e5d4afdd35%3A0x2448159ac7230263!2zSGFsYWwgV2FneXUgS29iZSBCZWVmIFN0ZWFrIE5pc2hpa2kgTWFya2V0IEthd2FyYW1hY2hpIEZvb2QgUmVzdGF1cmFudCDnpZ7miLfniZvogonppJDljoU!5e0!3m2!1sja!2sjp!4v1788767440584!5m2!1sja!2sjp",
       // ===== 評価 =====（口コミ非表示）
       rating: "",
       rating_count: "",
