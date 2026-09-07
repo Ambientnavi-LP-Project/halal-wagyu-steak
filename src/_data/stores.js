@@ -81,8 +81,8 @@ module.exports = {
       hours_note: "Open Daily",
       reserve_system: "tablecheck",  // "tablecheck" | "form"
       tablecheck_url: "https://www.tablecheck.com/en/halal-wagyu-ginza-5w-tokyo/reserve/message",
-      maps_link: "https://maps.app.goo.gl/4EfmHFrLB2qsBVn88",
-      maps_embed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7956332.37488466!2d132.3809798!3d35.1867375!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b8a1b1f7ca7%3A0x8d81bba28006abf!2zSmFwYW5lc2UgRm9vZCBXYWd5dSBCZWVmIChIYWxhbCkgUmFtZW4gSGFtYnVyZ2VyIEdpbnphIFJlc3RhdXJhbnQgNVctVG9reW8gKOS4nOS6rOWSjOeJm-aLiem6uik!5e0!3m2!1sja!2sjp!4v1780407684524!5m2!1sja!2sjp",
+      maps_link: "https://maps.app.goo.gl/5kbrAvzrYVzqDRR88",
+      maps_embed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1620.6251859301601!2d139.76779941143224!3d35.67083662872174!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b8a1b1f7ca7%3A0x8d81bba28006abf!2zSmFwYW5lc2UgRm9vZCBXYWd5dSBCZWVmIChIYWxhbCkgUmFtZW4gSGFtYnVyZ2VyIEdpbnphIFJlc3RhdXJhbnQgNVctVG9reW8gKOS4nOS6rOWSjOeJm-aLiem6uik!5e0!3m2!1sja!2sjp!4v1788768792606!5m2!1sja!2sjp",
       rating: "4.8",
       rating_count: "4,965",
       rating_source: "Google Review"
@@ -189,8 +189,8 @@ module.exports = {
       // ===== 予約・地図 =====（予約は電話案内・地図は非表示）
       reserve_system: "tablecheck",  // "tablecheck" | "form"
       tablecheck_url: "",          // 空 → 予約ボタンを電話案内に
-      maps_link: "https://maps.app.goo.gl/8V2XBzRXMPqwZpud9",               // 非表示
-      maps_embed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d816.6973276584952!2d135.72979461906752!3d35.0370003685955!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600107aff1c4952f%3A0x9d293197be795beb!2sWagyu%20Steak%20Hamburger%20Halal%20Kobe%20Beef%20Vegan%20%E4%BA%AC%E9%83%BD%E7%BE%8E%E9%A3%9F%20Kinkakuji%20Temple%20Restaurant!5e0!3m2!1sja!2sjp!4v1788509735338!5m2!1sja!2sjp",
+      maps_link: "https://maps.app.goo.gl/qNV9YuLxYKefheMPA",
+      maps_embed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1633.394744235747!2d135.72918843078668!3d35.03699592022091!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600107aff1c4952f%3A0x9d293197be795beb!2sWagyu%20Steak%20Hamburger%20Halal%20Kobe%20Beef%20Vegan%20%E4%BA%AC%E9%83%BD%E7%BE%8E%E9%A3%9F%20Kinkakuji%20Temple%20Restaurant!5e0!3m2!1sja!2sjp!4v1788768883901!5m2!1sja!2sjp",
       // ===== 評価 =====（口コミ非表示）
       rating: "",
       rating_count: "",
