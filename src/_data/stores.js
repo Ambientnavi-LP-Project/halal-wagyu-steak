@@ -224,6 +224,35 @@ module.exports = {
       rating: "",
       rating_count: "",
       rating_source: ""
+    },
+    {
+      // ===== URL/識別 =====
+      region: "kyoto",
+      slug: "gojozaka",
+      // ===== 店名 =====
+      name_full_en: "Gojozaka Kobe Beef Wagyu Steak Halal Restaurant 京都美食",
+      name_cn: "",
+      hero_place: "Kyoto's Gojozaka",
+      // ===== 立地 =====（ラーメン五条坂と同じ建物 / steakは3F）
+      city: "Gojozaka, Kyoto",
+      station_en: "Kiyomizu-Gojo Station",
+      address_en: "3F, 559-7 Yugyomaecho, Higashiyama-ku, Kyoto",
+      address_postal: "605-0864",
+      // ===== 連絡先 =====
+      tel_display: "080-8378-1058",
+      tel_raw: "+818083781058",
+      // ===== 営業 =====
+      hours: "11:00 – 23:00",
+      hours_note: "Open Daily",
+      // ===== 予約・地図 =====（TableCheck未開設 → 電話案内 / GB未開設 → 地図非表示）
+      reserve_system: "tablecheck",  // "tablecheck" | "form"
+      tablecheck_url: "",          // 空 → 予約ボタンを電話案内に
+      maps_link: "",               // GB開設後に設定
+      maps_embed: "",              // GB開設後に設定
+      // ===== 評価 =====（GB未開設のため口コミ非表示）
+      rating: "",
+      rating_count: "",
+      rating_source: ""
     }
   ]
 };
